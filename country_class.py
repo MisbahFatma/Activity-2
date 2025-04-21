@@ -1,31 +1,55 @@
 
 
-class Country:
+class Country:      
     def __init__(self, name, environment, economy, culture, healthcare, education):
-        self.name = name
-        self.environment = environment
-        self.economy = economy
-        self.culture = culture
-        self.healthcare = healthcare
-        self.education = education
+        self.__name = name
+        self.__environment = environment
+        self.__economy = economy
+        self.__culture = culture
+        self.__healthcare = healthcare
+        self.__education = education
 
-
-   # Setters 
-   def set_data(self, name, env, eco, cul, health, edu):
-        self.name = name
-        self.environment = env
-        self.economy = eco
-        self.culture = cul
-        self.healthcare = health
-        self.education = edu
-
-    # Getters
+    # Getter and Setter for name
     def get_name(self):
         return self.__name
 
-    def get_factors(self):
-        return [self.__environment, self.__economy, self.__culture, self.__healthcare, self.__education]
+    def set_name(self, name):
+        self.__name = name
 
+    # Getter and Setter for environment
+    def get_environment(self):
+        return self.__environment
+
+    def set_environment(self, environment):
+        self.__environment = environment
+
+    # Getter and Setter for economy
+    def get_economy(self):
+        return self.__economy
+
+    def set_economy(self, economy):
+        self.__economy = economy
+
+    # Getter and Setter for culture
+    def get_culture(self):
+        return self.__culture
+
+    def set_culture(self, culture):
+        self.__culture = culture
+
+    # Getter and Setter for healthcare
+    def get_healthcare(self):
+        return self.__healthcare
+
+    def set_healthcare(self, healthcare):
+        self.__healthcare = healthcare
+
+    # Getter and Setter for education
+    def get_education(self):
+        return self.__education
+
+    def set_education(self, education):
+        self.__education = education
 
 
 class HappinessMeter:  
