@@ -55,39 +55,39 @@ class Country:
     def set_education(self, neweducation):
         self.__education = neweducation
 
-    def set_allFactors(self,newname,newenv,neweconomy,newculture,newhealthcare,neweducation):
-        self.__name = newname
-        self.__environment = newenv
-        self.__economy = neweconomy
-        self.__culture = newculture
-        self.__healthcare = newhealthcare
-        self.__education = neweducation
+    def set_allFactors(self,newname,newenv,neweconomy,newculture,newhealthcare,neweducation): # Method to set or update all factors for a country at once
+        self.__name = newname   # Set the country's name
+        self.__environment = newenv   # Set the environment score (0-100)
+        self.__economy = neweconomy    # Set the economy score (0-100)
+        self.__culture = newculture    # Set the culture score (0-100)
+        self.__healthcare = newhealthcare  # Set the healthcare score (0-100)
+        self.__education = neweducation   # Set the education score (0-100)
 
 # HappinessMeter Class
 class HappinessMeter:  
     def __init__(self):
         self.countries = []    # Starts as an empty list to add countries to
 
-    def add_country(self, country):
-        self.countries.append(country)    
+    def add_country(self, country): 
+        self.countries.append(country)   # Add a country object to the countries list 
         
     def measure_happiness(self):
-        print("Happiness Measurement:")
-        for i in self.countries:
-            env = int(i.get_environment())
+        print("Happiness Measurement:")   # Print a heading for the happiness measurement results
+        for i in self.countries:          # Retrieve and convert the values of various happiness-related factors
+            env = int(i.get_environment())  # Retrieve and convert the (env,eco,cul,health,edu) score to an integer
             eco = int(i.get_economy())
             cul = int(i.get_culture())
             health = int(i.get_healthcare())
             edu = int(i.get_education())
-            factors = [env,eco,cul,health,edu]
-            happiness = sum(factors) / len(factors)
-            print( i.get_name(), ":" , round(happiness, 2) )
+            factors = [env,eco,cul,health,edu]  # Store all factor scores in a list
+            happiness = sum(factors) / len(factors)  # Calculate the average score to determine happiness
+            print( i.get_name(), ":" , round(happiness, 2) )  # Print the country's name and its happiness score rounded to two decimals
 
 def main():
-    meter = HappinessMeter()
-    num_country = int(input("Enter the number of countries: "))
+    meter = HappinessMeter()  # Create an instance of the HappinessMeter class
+    num_country = int(input("Enter the number of countries: "))  # Prompt the user to enter the number of countries to evaluate
 
-    for i in range(num_country):
+    for i in range(num_country):  # Loop through each country to collect details
         print("\nEnter details for country " + str(i + 1) + ":")
         name = input("Name: ")
         env = int(input("Environment (0-100): "))
@@ -96,11 +96,11 @@ def main():
         health = int(input("Healthcare (0-100): "))
         edu = int(input("Education (0-100): "))
 
-        country = Country(name, env, eco, cul, health, edu)
+        country = Country(name, env, eco, cul, health, edu)   # Create a Country object with the provided values
         
-        meter.add_country(country)
+        meter.add_country(country)  # Add the country to the HappinessMeter's list
 
-    meter.measure_happiness()
+    meter.measure_happiness() # Calculate and display happiness scores for all entered countries
 
 
 if __name__ == "__main__":
