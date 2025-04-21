@@ -2,7 +2,7 @@
 This python file works as a Happiness Index Measurement System, by taking user input for a country's
 name, then ratings of Environment, Economy, Culture, Healthcare and Education from 0 to 100.
 """
-
+# Country Class
 class Country:      
     __slots__=['__name','__environment','__economy','__culture','__healthcare','__education']
     # __ = Private fields
@@ -15,7 +15,7 @@ class Country:
         self.__healthcare = healthcare
         self.__education = education
 
-    # Getters for fields (name, environment, economy, culture, healthcare, education):
+    # Getters/Accessors for fields (name, environment, economy, culture, healthcare, education):
     def get_name(self):
         return self.__name
 
@@ -35,10 +35,10 @@ class Country:
         return self.__education
 
 
-   # Setters for fields(name, environment, economy, culture, healthcare, education)
+   # Setters/Mutators for fields(name, environment, economy, culture, healthcare, education)
 
-    def set_name(self, newName):
-        self.__name = newName
+    def set_name(self, newname):
+        self.__name = newname
         
     def set_environment(self, newenvironment):
         self.__environment = newenvironment
@@ -55,27 +55,39 @@ class Country:
     def set_education(self, neweducation):
         self.__education = neweducation
 
+    def set_allFactors(self,newname,newenv,neweconomy,newculture,newhealthcare,neweducation):
+        self.__name = newname
+        self.__environment = newenv
+        self.__economy = neweconomy
+        self.__culture = newculture
+        self.__healthcare = newhealthcare
+        self.__education = neweducation
 
+# HappinessMeter Class
 class HappinessMeter:  
     def __init__(self):
-        self.countries = []
+        self.countries = []    # Starts as an empty list to add countries to
 
     def add_country(self, country):
         self.countries.append(country)    
         
     def measure_happiness(self):
         print("Happiness Measurement:")
-        for country in self.countries:
-            factors = country.get_factors()
+        for i in self.countries:
+            env = int(i.get_environment())
+            eco = int(i.get_economy())
+            cul = int(i.get_culture())
+            health = int(i.get_healthcare())
+            edu = int(i.get_education())
+            factors = [env,eco,cul,health,edu]
             happiness = sum(factors) / len(factors)
-            print( country.get_name(), ":" , round(happiness, 2) )
-
+            print( i.get_name(), ":" , round(happiness, 2) )
 
 def main():
     meter = HappinessMeter()
-    name_country = int(input("Enter the number of countries: "))
+    num_country = int(input("Enter the number of countries: "))
 
-    for i in range(name_country):
+    for i in range(num_country):
         print("\nEnter details for country " + str(i + 1) + ":")
         name = input("Name: ")
         env = int(input("Environment (0-100): "))
@@ -84,8 +96,7 @@ def main():
         health = int(input("Healthcare (0-100): "))
         edu = int(input("Education (0-100): "))
 
-        country = Country()
-        country.set_data(name, env, eco, cul, health, edu)
+        country = Country(name, env, eco, cul, health, edu)
         
         meter.add_country(country)
 
