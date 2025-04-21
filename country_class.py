@@ -1,6 +1,12 @@
-
+"""
+This python file works as a Happiness Index Measurement System, by taking user input for a country's
+name, then ratings of Environment, Economy, Culture, Healthcare and Education from 0 to 100.
+"""
 
 class Country:      
+    __slots__=['__name','__environment','__economy','__culture','__healthcare','__education']
+    # __ = Private fields
+    
     def __init__(self, name, environment, economy, culture, healthcare, education):
         self.__name = name
         self.__environment = environment
@@ -9,7 +15,7 @@ class Country:
         self.__healthcare = healthcare
         self.__education = education
 
-    # Getters for fields(name, environment, economy, culture, healthcare, education)
+    # Getters for fields (name, environment, economy, culture, healthcare, education):
     def get_name(self):
         return self.__name
 
@@ -25,13 +31,13 @@ class Country:
     def get_healthcare(self):
         return self.__healthcare
 
-     def get_education(self):
+    def get_education(self):
         return self.__education
 
 
    # Setters for fields(name, environment, economy, culture, healthcare, education)
 
-    def set_name(self, newname):
+    def set_name(self, newName):
         self.__name = newName
         
     def set_environment(self, newenvironment):
@@ -80,6 +86,7 @@ def main():
 
         country = Country()
         country.set_data(name, env, eco, cul, health, edu)
+        
         meter.add_country(country)
 
     meter.measure_happiness()
