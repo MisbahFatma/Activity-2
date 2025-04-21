@@ -9,47 +9,45 @@ class Country:
         self.__healthcare = healthcare
         self.__education = education
 
-    # Getter and Setter for name
+    # Getters for fields(name, environment, economy, culture, healthcare, education)
     def get_name(self):
         return self.__name
 
-    def set_name(self, name):
-        self.__name = name
-
-    # Getter and Setter for environment
     def get_environment(self):
         return self.__environment
 
-    def set_environment(self, environment):
-        self.__environment = environment
-
-    # Getter and Setter for economy
     def get_economy(self):
         return self.__economy
 
-    def set_economy(self, economy):
-        self.__economy = economy
-
-    # Getter and Setter for culture
     def get_culture(self):
         return self.__culture
 
-    def set_culture(self, culture):
-        self.__culture = culture
-
-    # Getter and Setter for healthcare
     def get_healthcare(self):
         return self.__healthcare
 
-    def set_healthcare(self, healthcare):
-        self.__healthcare = healthcare
-
-    # Getter and Setter for education
-    def get_education(self):
+     def get_education(self):
         return self.__education
 
-    def set_education(self, education):
-        self.__education = education
+
+   # Setters for fields(name, environment, economy, culture, healthcare, education)
+
+    def set_name(self, newname):
+        self.__name = newName
+        
+    def set_environment(self, newenvironment):
+        self.__environment = newenvironment
+        
+    def set_economy(self, neweconomy):
+        self.__economy = neweconomy
+
+    def set_culture(self, newculture):
+        self.__culture = newculture
+    
+    def set_healthcare(self, newhealthcare):
+        self.__healthcare = newhealthcare
+    
+    def set_education(self, neweducation):
+        self.__education = neweducation
 
 
 class HappinessMeter:  
